@@ -10,8 +10,6 @@ if(isset($_POST ['login'])){
 
     //mencocokkan dengan db
     $cekdatabase = mysqli_query($conn, "SELECT * FROM login where email='$email' and password='$password'");
-    $data = mysqli_fetch_assoc($cekdatabase);
-    
     //hitung jumlah data
     $hitung = mysqli_num_rows($cekdatabase);
 
@@ -41,7 +39,7 @@ if(!isset($_SESSION ['log'])){
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Login - SB Admin</title>
+        <title>Login</title>
         <link href="css/styles.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
