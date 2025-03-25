@@ -154,11 +154,11 @@ require 'cek.php';
         <!-- Modal body -->
         <form method="post">
             <div class="modal-body">
-                <input type="text" name="namabarang" placeholder="Nama Barang" class="form-control">
+                <input type="text" name="namabarang" placeholder="Nama Barang" class="form-control" required>
                 <br>
-                <input type="text" name="deskripsi" placeholder="Deskripsi Barang" class="form-control">
+                <input type="text" name="deskripsi" placeholder="Deskripsi Barang" class="form-control" required>
                 <br>
-                <input type="number" name="stock" placeholder="Stock" class="form-control">
+                <input type="number" name="stock" placeholder="Stock" class="form-control" required>
                 <br>
                 <button type="submit" class="btn btn-primary" name="addnewbarang"> Submit </button>
             </div>
