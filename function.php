@@ -26,8 +26,8 @@ if(isset($_POST['addnewbarang'])){
 if(isset($_POST['barangmasuk'])){
     $barangnya = $_POST['barangnya'];
     $penerima = $_POST['penerima'];
-
-    $addtomasuk = mysqli_query($conn, "insert into masuk (idbarang, keterangan) values ('$barangnya', '$penerima')");
+    $qty = $_POST['qty'];
+    $addtomasuk = mysqli_query($conn, "insert into masuk (idbarang, keterangan) values ('$barangnya', '$penerima', '$qty')");
     if($addtomasuk){
         header('location:index.php');
     } else {
