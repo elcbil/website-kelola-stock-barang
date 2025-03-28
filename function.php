@@ -20,4 +20,20 @@ if(isset($_POST['addnewbarang'])){
         header('location:inddex.php');
     }
 }
+
+//menambah barang masuk
+
+if(isset($_POST['barangmasuk'])){
+    $barangnya = $_POST['barangnya'];
+    $penerima = $_POST['penerima'];
+
+    $addtomasuk = mysqli_query($conn, "insert into masuk (idbarang, keterangan) values ('$barangnya', '$penerima')");
+    if($addtomasuk){
+        header('location:index.php');
+    } else {
+        echo 'Gagal';
+        header('location:index.php');
+    }
+
+}
 ?>
