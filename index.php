@@ -64,9 +64,7 @@ require 'cek.php';
                             </a>
                             <a class="nav-link" href="logout.php">
                                 Logout
-                            </a>
-
-                            
+                            </a>                            
 
                         </div>
                     </div>
@@ -79,7 +77,7 @@ require 'cek.php';
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Barang Keluar</h1>
+                        <h1 class="mt-4">Stock Barang</h1>
 
                         <div class="card mb-4">
                             <div class="card-header">
@@ -92,25 +90,30 @@ require 'cek.php';
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>No</th>
+                                            <th>Nama Barang</th>
+                                            <th>Deskripsi</th>
+                                            <th>Stock</th>                                    
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <?php
+                                        $ambilsemuadatastock = mysqli_query($conn, "select * from stock");
+                                        while ($data=mysqli_fetch_array($ambilsemuadatastock)){
+                                            $i = 1;
+                                            $namabarang = $data['namabarang'];
+                                            $deskripsi = $data ['deskripsi'];
+                                            $stock = $data ['stock'];                                         
+                                        ?>
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                            <td><?=$i++;?></td>
+                                            <td><?=$namabarang;?></td>
+                                            <td><?=$deskripsi;?></td>
+                                            <td><?=$stock;?></td>                                            
                                         </tr>
-                                        
-
+                                        <?php  
+                                        };
+                                        ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -164,10 +167,6 @@ require 'cek.php';
             </div>
         </form>
 
-        <!-- Modal footer -->
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        </div>
 
         </div>
     </div>

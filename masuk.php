@@ -92,23 +92,30 @@ require 'cek.php';
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                            <th>Tanggal</th>
+                                            <th>Nama Barang</th>
+                                            <th>Qty</th>
+                                            <th>Keterangan</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    <?php
+                                        $ambilsemuadatastock = mysqli_query($conn, "select * from masuk m, stock s where s.idbarang = m.idbarang");
+                                        while ($data=mysqli_fetch_array($ambilsemuadatastock)){
+                                            $tanggal = $data ['tanggal'];
+                                            $namabarang = $data['namabarang'];
+                                            $qty = $data ['qty'];
+                                            $keterangan = $data ['keterangan'];                                         
+                                        ?>
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
+                                            <td><?=$i++;?></td>
+                                            <td><?=$namabarang;?></td>
+                                            <td><?=$qty;?></td>
+                                            <td><?=$keterangan;?></td>                                            
                                         </tr>
+                                        <?php  
+                                        };
+                                        ?>
                                         
 
                                     </tbody>
@@ -169,16 +176,11 @@ require 'cek.php';
                 <br>
                 <input type="number" name="qty" placeholder="Quantity" class="form-control" required>
                 <br>
-                <input type="text" name="penerima" placeholder="Stock" class="form-control" required>
+                <input type="text" name="penerima" placeholder="Penerima" class="form-control" required>
                 <br>
                 <button type="submit" class="btn btn-primary" name="addnewbarang"> Submit </button>
             </div>
         </form>
-
-        <!-- Modal footer -->
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        </div>
 
         </div>
     </div>
