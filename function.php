@@ -17,7 +17,7 @@ if(isset($_POST['addnewbarang'])){
         header('location: index.php');
     } else {
         echo 'Gagal';
-        header('location:inddex.php');
+        header('location:index.php');
     }
 }
 
@@ -34,7 +34,7 @@ if(isset($_POST['barangmasuk'])){
     $stocksekarang = $ambildatanya['stock'];
     $tambahkanstocksekarangdenganquantity = $stocksekarang + $qty;
 
-    $addtomasuk = mysqli_query($conn, "insert into masuk (idbarang, keterangan) values ('$barangnya', '$penerima', '$qty')");
+    $addtomasuk = mysqli_query($conn, "insert into masuk (idbarang, keterangan, qty) values ('$barangnya', '$penerima', '$qty')");
     $updatestockmasuk = mysqli_query($conn, "update stock set stock = '$tambahkanstocksekarangdenganquantity' where idbarang = '$barangnya'");
 
     if($addtomasuk&&$updatestockmasuk){
@@ -57,10 +57,10 @@ if(isset($_POST['addbarangkeluar'])){
     $stocksekarang = $ambildatanya['stock'];
     $tambahkanstocksekarangdenganquantity = $stocksekarang - $qty;
 
-    $addtomasuk = mysqli_query($conn, "insert into keluar (idbarang, penerima) values ('$barangnya', '$penerima', '$qty')");
+    $addtokeluar = mysqli_query($conn, "insert into keluar (idbarang, penerima, qty) values ('$barangnya', '$penerima', '$qty')");
     $updatestockmasuk = mysqli_query($conn, "update stock set stock = '$tambahkanstocksekarangdenganquantity' where idbarang = '$barangnya'");
 
-    if($addtomasuk&&$updatestockmasuk){
+    if($addtokeluar&&$updatestockmasuk){
         header('location:keluar.php');
     } else {
         echo 'Gagal';

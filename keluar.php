@@ -109,7 +109,7 @@ require 'cek.php';
                                             $penerima = $data ['penerima'];                                         
                                         ?>
                                         <tr>
-                                            <td><?=$i++;?></td>
+                                            <td><?=$tanggal;?></td>
                                             <td><?=$namabarang;?></td>
                                             <td><?=$qty;?></td>
                                             <td><?=$penerima;?></td>                                            

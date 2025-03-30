@@ -108,7 +108,7 @@ require 'cek.php';
                                             $keterangan = $data ['keterangan'];                                         
                                         ?>
                                         <tr>
-                                            <td><?=$i++;?></td>
+                                            <td><?=$tanggal;?></td>
                                             <td><?=$namabarang;?></td>
                                             <td><?=$qty;?></td>
                                             <td><?=$keterangan;?></td>                                            
@@ -160,7 +160,7 @@ require 'cek.php';
         <!-- Modal body -->
         <form method="post">
             <div class="modal-body">
-                <select name="barangnya" id="" class="form-control">
+                <select name="barangnya" class="form-control">
                     <?php
                         $ambilsemuadatanya = mysqli_query($conn, "select * from stock");
                         while($fetcharray = mysqli_fetch_array($ambilsemuadatanya)){
