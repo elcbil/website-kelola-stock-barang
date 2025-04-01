@@ -117,6 +117,7 @@ require 'cek.php';
                                                         <br>
                                                         <input type="number" name="stock" placeholder="Stock" class="form-control" required>
                                                         <br>
+                                                        <input type="hidden" name="idb" value="<?=$idb?>">
                                                         <button type="submit" class="btn btn-primary" name="updatebarang"> Submit </button>
                                                     </div>
                                                 </form>
@@ -139,13 +140,11 @@ require 'cek.php';
                                                 <!-- Modal body -->
                                                 <form method="post">
                                                     <div class="modal-body">
-                                                        <input type="text" name="namabarang" value="<?=$namabarang;?>" class="form-control" required>
-                                                        <br>
-                                                        <input type="text" name="deskripsi" value="<?=$deskripsi;?>" class="form-control" required>
-                                                        <br>
-                                                        <input type="number" name="stock" placeholder="Stock" class="form-control" required>
-                                                        <br>
-                                                        <button type="submit" class="btn btn-danger" name="hapusbarang"> Hapus </button>
+                                                    Apakah Anda ingin menghapus <?$namabarang;?>?
+                                                    <input type="hidden" name="idb" value="<?=$idb?>">
+                                                    <br>
+                                                    <br>
+                                                    <button type="submit" class="btn btn-danger" name="hapusbarang"> Hapus </button>
                                                     </div>
                                                 </form>
 
