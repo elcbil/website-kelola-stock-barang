@@ -20,7 +20,7 @@ require 'cek.php';
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.php">Darul's Stock</a>
+            <a class="navbar-brand ps-3" href="index.php">Nabila's Stock</a>
         </nav>
         <div id="layoutSidenav">
             <div id="layoutSidenav_nav">
@@ -76,6 +76,7 @@ require 'cek.php';
                                         $ambilsemuadatastock = mysqli_query($conn, "select * from masuk m, stock s where s.idbarang = m.idbarang");
                                         while ($data=mysqli_fetch_array($ambilsemuadatastock)){
                                             $idb = $data['idbarang'];
+                                            $idm = $data['idmasuk'];
                                             $tanggal = $data ['tanggal'];
                                             $namabarang = $data['namabarang'];
                                             $qty = $data ['qty'];
@@ -110,14 +111,14 @@ require 'cek.php';
                                             <!-- Modal body -->
                                             <form method="post">
                                                 <div class="modal-body">
-                                                    <input type="text" name="namabarang" value="<?=$namabarang;?>" class="form-control" required>
+                                                    
+                                                    <input type="number" name="qty" value="<?=$qty;?>" class="form-control" required>
                                                     <br>
-                                                    <input type="text" name="qty" value="<?=$qty;?>" class="form-control" required>
+                                                    <input type="text" name="keterangan" value="<?=$keterangan;?>" class="form-control" required>
                                                     <br>
-                                                    <input type="number" name="stock" placeholder="Stock" class="form-control" required>
-                                                    <br>
-                                                    <input type="hidden" name="idb" value="<?=$idb?>">
-                                                    <button type="submit" class="btn btn-primary" name="updatebarang"> Submit </button>
+                                                    <input type="hidden" name="idb" value="<?=$idb;?>">
+                                                    <input type="hidden" name="idm" value="<?=$idm;?>">
+                                                    <button type="submit" class="btn btn-primary" name="updatebarangmasuk"> Submit </button>
                                                 </div>
                                             </form>
 
@@ -141,10 +142,11 @@ require 'cek.php';
                                             <form method="post">
                                                 <div class="modal-body">
                                                 Apakah Anda ingin menghapus <?$namabarang;?>?
-                                                <input type="hidden" name="idb" value="<?=$idb?>">
+                                                <input type="hidden" name="idb" value="<?=$idb;?>">
+                                                <input type="hidden" name="kty" value="<?=$qty;?>">
                                                 <br>
                                                 <br>
-                                                <button type="submit" class="btn btn-danger" name="hapusbarang"> Hapus </button>
+                                                <button type="submit" class="btn btn-danger" name="hapusbarangmasuk"> Hapus </button>
                                                 </div>
                                             </form>
 
